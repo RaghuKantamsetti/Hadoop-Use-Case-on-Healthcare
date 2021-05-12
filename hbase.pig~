@@ -1,0 +1,12 @@
+REGISTER /home/gopalkrishna/INSTALL/hbase-0.98.4-hadoop2/lib/zookeeper-3.4.6.jar;
+REGISTER /home/gopalkrishna/INSTALL/hbase-0.98.4-hadoop2/lib/guava-12.0.1.jar;
+REGISTER /home/gopalkrishna/INSTALL/hbase-0.98.4-hadoop2/lib/protobuf-java-2.5.0.jar;
+REGISTER /home/gopalkrishna/INSTALL/hbase-0.98.4-hadoop2/lib/hbase-common-0.98.4-hadoop2.jar;
+REGISTER /home/gopalkrishna/INSTALL/hbase-0.98.4-hadoop2/lib/hbase-client-0.98.4-hadoop2.jar;
+REGISTER /home/gopalkrishna/INSTALL/hbase-0.98.4-hadoop2/lib/hbase-server-0.98.4-hadoop2.jar;
+
+
+
+hdata = load 'hdfs://localhost:8020/Health-Pig-OUt/part-r-00000' using PigStorage as (pid:int,pname:chararray,page:int,pgender:chararray,pdisinfo:chararray,phospital:chararray,padate:chararray,ploc:chararray);
+
+STORE hdata INTO 'hbase://health_hbasetab' USING org.apache.pig.backend.hadoop.hbase.HBaseStorage('p:pid,p:name,p:page,p:pgender,p:disinfo,p:phospital,p:adate,p:ploc');

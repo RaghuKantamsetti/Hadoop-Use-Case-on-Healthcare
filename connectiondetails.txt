@@ -1,0 +1,6 @@
+--connect 
+jdbc:mysql://localhost:3306/healthcareproject
+--username
+root 
+--password 
+root
