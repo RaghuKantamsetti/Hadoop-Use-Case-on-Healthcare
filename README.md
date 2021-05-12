@@ -3,18 +3,18 @@
 ## HEALTH CARE PROCESSING 
 
 ### Deployment Guide
-System Requirements :  
-             4 GB RAM
-				     20  GB HDD
-				     UBUNTU 14.04 LTS
-S/w Requirements :  
-             Java 1.8
-             Hadoop 2.6.0
-				     Pig 0.15.0
-				     Hive 1.2.1
-				     Hbase 0.98.4 hadoop2
-				     MySQL Database
-             SQOOP 1.4.6
+###### System Requirements :  
+4 GB RAM
+20  GB HDD
+UBUNTU 14.04 LTS
+###### S/w Requirements :  
+Java 1.8
+Hadoop 2.6.0
+Pig 0.15.0
+Hive 1.2.1
+Hbase 0.98.4 hadoop2
+MySQL Database
+SQOOP 1.4.6
              
 ### Architecture
 
@@ -22,8 +22,8 @@ S/w Requirements :
  
 ##### The Deployment of the Project involves the following steps :
 
-STEP 1: Install the compatible version of Hbase (0.98.4-hadoop2) on machine & update the location of bin path of the same in the .bashrc file.
-STEP 2 : Add the following list of jars in the following directory path :
+###### STEP 1: Install the compatible version of Hbase (0.98.4-hadoop2) on machine & update the location of bin path of the same in the .bashrc file.
+###### STEP 2 : Add the following list of jars in the following directory path :
 (a)	/home/user/INSTALL/hadoop-2.6.0/lib
 (b)	/home/user/INSTALL/hadoop-2.6.0/share/hadoop/common
 1.	commons-logging-1.1.1
@@ -37,8 +37,8 @@ STEP 2 : Add the following list of jars in the following directory path :
 9.	preflight-1.8.10
 10.	preflight-app-1.8.10
 11.	xmpbox-1.8.10
-STEP 3: Create a directory with name ‘project_media’ in the following path :
-	       /home/user and place the following files,
+###### STEP 3: Create a directory with name ‘project_media’ in the following path :
+/home/user and place the following files,
 1.	connectiondetails.txt
 2.	healthcareprocessing.sh
 3.	copyToHdfs.sh
@@ -57,7 +57,7 @@ STEP 3: Create a directory with name ‘project_media’ in the following path :
 16.	parameter.properties
 17.	HealthCare.jar(runnable jar)
 
-STEP 4 : Execute the HealthCareProjectExecution.sh shellscript :
+###### STEP 4 : Execute the HealthCareProjectExecution.sh shellscript :
 	       sh healthcareprocessing.sh
 
 
@@ -66,25 +66,17 @@ STEP 4 : Execute the HealthCareProjectExecution.sh shellscript :
 --To process Input data(unprocessed data) use Hadoop components like MAPREDUCE.
 
 --Filter MR-Output in PIG
-                           Mapper output is loaded into PIG.
-                           Filtering the duplicates by using DISTINCT.
-                           Grouping the data based on HospitalName.
-                           Take top 50 Records from Hospital whose age is between 20, 55
-                           Sort the Unique data based on PatientID.
+  Mapper output is loaded into PIG.
+  Filtering the duplicates by using DISTINCT.
+  Grouping the data based on HospitalName.
+  Take top 50 Records from Hospital whose age is between 20, 55
+  Sort the Unique data based on PatientID.
 
 --Processed data will be stored in  MySQL and Hbase,Hive Tables.
-                           MYSQL table is created.
-                           Exported the Pig OutPut data to MYSQL with the help of SQOOP component
-                           Create a HIVE external table.
-                           Load PIG output data into it  for Adhoc Query Processing.
-
-
---User Story has to be build by using following components:	
-                                                            MapReduce
-                                                            Pig
-                                                            Hive 
-                                                            HBase
-                                                            Sqoop
+  MYSQL table is created.
+  Exported the Pig OutPut data to MYSQL with the help of SQOOP component
+  Create a HIVE external table.
+  Load PIG output data into it  for Adhoc Query Processing.
 
 ##### sample output
 
